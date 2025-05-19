@@ -1,4 +1,4 @@
-# 📐📷 distance_camera2aruco - Visão Computacional Aplicada
+# 📐📷 Distance_Camera2ArUco - Visão Computacional Aplicada
 
 Este projeto foi desenvolvido como parte da disciplina **Visão Computacional Aplicada**, e tem como objetivo detectar marcadores **ArUco**, estimar sua pose em relação à câmera, e calcular a **distância e orientação** em tempo real.
 
