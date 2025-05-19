@@ -47,7 +47,7 @@ arucoDetector = cv2.aruco.ArucoDetector(dictionary, parameters)
 camera_id = 1
 
 # Definicoes para aquisicao das imagens no Espaco Inteligente
-broker_uri = "amqp://guest:guest@10.10.2.211:30000"
+broker_uri = "amqp://rabbitmq:30000"
 channel = Channel(broker_uri)
 
 subscription = Subscription(channel=channel)
@@ -55,7 +55,7 @@ subscription.subscribe(topic='CameraGateway.{}.Frame'.format(camera_id))
 
 nome_imagem = 'Camera'
 
-dados1 = np.load('/homes/joliveira/Downloads/calib_rt1.npz')
+dados1 = np.load('/pasta/calib_rt1.npz')
 RT1 = dados1['rt']
 K1 = dados1['K']
 dist1 = dados1['dist']
