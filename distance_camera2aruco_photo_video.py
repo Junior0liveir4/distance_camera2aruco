@@ -83,12 +83,12 @@ def record_video_loop(output_path, frame_size, fps, channel, subscription, undis
 
 # Setup
 camera_id = 1
-broker_uri = "amqp://guest:guest@10.10.2.211:30000"
+broker_uri = "amqp://rabbitmq:30000"
 channel = Channel(broker_uri)
 subscription = Subscription(channel=channel)
 subscription.subscribe(topic='CameraGateway.{}.Frame'.format(camera_id))
 
-dados1 = np.load('/homes/joliveira/Desktop/Junior/distance_camera2aruco/matrix_cams/calib_rt1.npz')
+dados1 = np.load('/pasta/calib_rt1.npz')
 RT1 = dados1['rt']
 K1 = dados1['K']
 dist1 = dados1['dist']
@@ -100,7 +100,7 @@ parameters = cv2.aruco.DetectorParameters()
 dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 arucoDetector = cv2.aruco.ArucoDetector(dictionary, parameters)
 
-output_dir = "/homes/joliveira/Desktop/Junior/Fotos_Vídeos"
+output_dir = "./output_media"
 os.makedirs(output_dir, exist_ok=True)
 video_output_path = os.path.join(output_dir, "output_video.avi")
 
